@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Anniversary Collage · Locked</title>
+  <link rel="stylesheet" href="style.css"  />
+</head>
+<body>
+
+    <div class="lock-screen">
+        <div class="lock-card" id="lockCard">
+            <div class="heart-hint">♡</div>
+            <h1>For my sunshine</h1>
+            <p>Enter the password to unlock our memories</p>
+
+            <input type="password" id="passwordInput" class="lock-input" placeholder="• • • • • •" autocomplete="off" autofocus />
+
+            <button class="lock-button" id="unlockButton">Unlock</button>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = 'who knows'; // Set your password, tentative
+
+        const input = document.getElementById('passwordInput');
+        const button = document.getElementById('unlockButton');
+        const errorMessage = document.createElement('lockError');
+        const lockCard = document.getElementById('lockCard');
+
+        function attemptUnlock(){
+            if(input.value.trim().toLowerCase() === correctPassword.toLowerCase()){
+                sessionStorage.setItem('anniversaryUnlocked', 'true');
+                window.location.href = 'index.html';
+            } else {
+                errorMessage.classList.add('visible');
+                lockCard.classList.add('shake');
+                setTimeout(() => lockCard.classList.remove('shake'), 450);
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        button.addEventListener('click', attemptUnlock);
+        input.addEventListener('keydown', (e) => {
+            if(e.key === "Enter") attemptUnlock();
+        });
+
+        input.addEventListener('input', () => {
+            errorMessage.classList.remove('visible');
+        });
+
+        // if unlocked in session, redirect to index.html
+        if (sessionStorage.getItem('anniversaryUnlocked') === 'true') {
+            window.location.href = 'index.html';
+        }
+
+    </script>
+
+</body>
+</html>

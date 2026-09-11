@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>❤️ 1 Year · love collage</title>
+  <title> 1 Year · love collage</title>
+
+  <!-- password gate: redirect to lock.html if not unlocked -->
+  <script>
+    if (sessionStorage.getItem('anniversaryUnlocked') !== 'true') {
+      window.location.href = 'lock.html';
+    }
+  </script>
+
   <!-- External CSS -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="spotify-player.css" />
 </head>
 <body>
 
 <div class="anniversary-header">
-  <h1>❤️ 1 year · us</h1>
+  <h1> 1 year of us</h1>
   <p>a collage of little moments</p>
 </div>
 
 <!-- collage grid -->
 <div class="collage-grid" id="collageGrid">
-  <!-- cards will be injected by JavaScript -->
 </div>
 
 <!-- subtle footer -->
@@ -24,7 +32,31 @@
   <span>✧ every memory, a little piece of us ✧</span>
 </div>
 
+<!-- Spotify dock -->
+<div class="spotify-dock" id="spotifyDock">
+  <div class="spotify-header">
+    <div class="spotify-label">
+      <span class="spotify-note">♫</span>
+      <span>our playlist</span>
+    </div>
+    <button class="spotify-toggle" id="spotifyToggle" aria-label="Collapse player">—</button>
+  </div>
+  <div class="spotify-body">
+    <!-- replace YOUR_PLAYLIST_ID with your real Spotify playlist ID -->
+    <iframe
+      src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID?utm_source=generator"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      title="Our playlist">
+    </iframe>
+  </div>
+</div>
+
 <!-- External JavaScript -->
+<script src="spotify-player.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
