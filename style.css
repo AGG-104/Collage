@@ -1,0 +1,190 @@
+/* style.css – subtle love theme, soft tones, clean collage */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fcf6f0;
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  padding: 2rem 1.5rem 3rem;
+  color: #3e2e2a;
+}
+
+.anniversary-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.anniversary-header h1 {
+  font-size: 2.6rem;
+  font-weight: 300;
+  background: linear-gradient(135deg, #d9b8a8 0%, #b48b7a 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  padding: 0 1rem;
+  border-bottom: 1px solid #ecd9d0;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.anniversary-header p {
+  font-size: 1.1rem;
+  color: #a88477;
+  font-weight: 300;
+  letter-spacing: 0.15rem;
+  margin-top: 0.2rem;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem 1.8rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.memory-card {
+  background: rgba(255, 250, 245, 0.7);
+  backdrop-filter: blur(2px);
+  border-radius: 32px 32px 28px 28px;
+  box-shadow: 0 6px 22px rgba(160, 120, 100, 0.08),
+              0 2px 6px rgba(180, 140, 120, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+  padding: 1.2rem 1.2rem 1.5rem;
+  border: 1px solid rgba(230, 210, 200, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.memory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 32px rgba(150, 110, 90, 0.10);
+  border-color: rgba(200, 170, 155, 0.5);
+  background: rgba(255, 252, 248, 0.85);
+}
+
+.media-wrapper {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #efe3db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 12px rgba(120, 80, 60, 0.04);
+}
+
+.media-wrapper img,
+.media-wrapper video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.2s;
+}
+
+.media-wrapper video {
+  background: #dacbc2;
+}
+
+.memory-textbox {
+  background: rgba(250, 242, 236, 0.7);
+  backdrop-filter: blur(2px);
+  padding: 0.85rem 1rem;
+  border-radius: 20px;
+  margin: 0.2rem 0 0.8rem 0;
+  border-left: 4px solid #dbb8ab;
+  box-shadow: inset 0 1px 4px rgba(255, 240, 230, 0.6);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: #42322c;
+  font-weight: 350;
+  word-break: break-word;
+  transition: background 0.2s;
+  cursor: text;
+}
+
+.memory-textbox:focus-within {
+  background: #faf1ea;
+  border-left-color: #b48b7a;
+}
+
+.memory-textbox p {
+  margin: 0;
+}
+
+.memory-textbox:empty::before {
+  content: "write something sweet…";
+  color: #ccb8ad;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.memory-description {
+  font-size: 0.82rem;
+  color: #a07e70;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.3rem 0;
+  border-top: 1px dashed #e7d3c9;
+  margin-top: 0.3rem;
+  padding-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 300;
+}
+
+.memory-description::before {
+  content: "📅";
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-right: 0.2rem;
+}
+
+.love-icon {
+  align-self: flex-end;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: #dbb8ab;
+  letter-spacing: 2px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.memory-card:hover .love-icon {
+  opacity: 0.9;
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: #c2a89b;
+  letter-spacing: 0.05rem;
+  border-top: 1px solid #eee1d9;
+  padding-top: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-note span {
+  background: #fcf6f0;
+  padding: 0 1rem;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  body { padding: 1.2rem 0.8rem; }
+  .anniversary-header h1 { font-size: 2rem; }
+  .collage-grid { gap: 1.5rem; }
+  .memory-card { padding: 0.9rem; }
+}
