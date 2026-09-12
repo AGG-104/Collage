@@ -1,0 +1,201 @@
+/* ---------- dock ---------- */
+.spotify-dock {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 320px;
+  background: rgba(255, 250, 245, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(230, 210, 200, 0.6);
+  border-radius: 22px;
+  box-shadow: 0 12px 36px rgba(160, 120, 100, 0.16),
+              0 2px 8px rgba(180, 140, 120, 0.08);
+  z-index: 100;
+  overflow: hidden;
+  transition: width 0.3s ease, transform 0.35s ease;
+}
+
+.spotify-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem 0.55rem;
+  border-bottom: 1px solid rgba(230, 210, 200, 0.5);
+}
+
+.spotify-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #8a6a5c;
+  letter-spacing: 0.04rem;
+  font-weight: 400;
+}
+
+.spotify-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d9b8a8, #b48b7a);
+  color: #fff;
+  font-size: 0.72rem;
+  box-shadow: 0 2px 6px rgba(180, 140, 120, 0.25);
+}
+
+.spotify-toggle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #a88477;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.spotify-toggle:hover {
+  background: rgba(219, 184, 171, 0.25);
+  color: #b48b7a;
+}
+
+/* ---------- body / open button ---------- */
+.spotify-body {
+  padding: 0.85rem 0.9rem 1rem;
+  text-align: center;
+}
+
+.spotify-open-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d9b8a8 0%, #b48b7a 100%);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(180, 140, 120, 0.28);
+  transition: transform 0.15s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.spotify-open-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(180, 140, 120, 0.35);
+}
+
+.spotify-open-btn:active {
+  transform: translateY(0);
+}
+
+.spotify-open-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.spotify-hint {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  color: #b3968a;
+  letter-spacing: 0.03rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ---------- collapsed state ---------- */
+.spotify-dock.collapsed {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.spotify-dock.collapsed .spotify-header {
+  padding: 0;
+  height: 100%;
+  border-bottom: none;
+  justify-content: center;
+}
+
+.spotify-dock.collapsed .spotify-label span:not(.spotify-note) {
+  display: none;
+}
+
+.spotify-dock.collapsed .spotify-label {
+  gap: 0;
+}
+
+.spotify-dock.collapsed .spotify-note {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #d9b8a8, #b48b7a);
+}
+
+.spotify-dock.collapsed .spotify-toggle {
+  display: none;
+}
+
+.spotify-dock.collapsed .spotify-body {
+  display: none;
+}
+
+.spotify-dock.collapsed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(180, 140, 120, 0.4);
+  animation: spotifyPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes spotifyPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(180, 140, 120, 0.35); }
+  70%  { box-shadow: 0 0 0 14px rgba(180, 140, 120, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(180, 140, 120, 0); }
+}
+
+body {
+  padding-bottom: 6rem;
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 600px) {
+  .spotify-dock {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: auto;
+    border-radius: 20px;
+  }
+
+  .spotify-dock.collapsed {
+    width: 56px;
+    height: 56px;
+    left: auto;
+    right: 0.75rem;
+    border-radius: 50%;
+  }
+
+  body { padding-bottom: 10rem; }
+}

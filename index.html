@@ -32,7 +32,7 @@
   <span>✧ every memory, a little piece of us ✧</span>
 </div>
 
-<!-- Spotify dock -->
+<!-- open playlist in Spotify -->
 <div class="spotify-dock" id="spotifyDock">
   <div class="spotify-header">
     <div class="spotify-label">
@@ -42,21 +42,22 @@
     <button class="spotify-toggle" id="spotifyToggle" aria-label="Collapse player">—</button>
   </div>
   <div class="spotify-body">
-    <!-- replace YOUR_PLAYLIST_ID with your real Spotify playlist ID -->
-    <iframe
-      src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID?utm_source=generator"
-      width="100%"
-      height="152"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-      title="Our playlist">
-    </iframe>
+    <a
+      class="spotify-open-btn"
+      id="spotifyOpenBtn"
+      href="https://open.spotify.com/playlist/0vqVx4FJZIeyNYZuZfd49U?si=8fc15752178e43af"
+      target="_blank"
+      rel="noopener noreferrer">
+      <svg class="spotify-open-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.15a.75.75 0 1 1-.33-1.46c4.55-1.04 8.47-.59 11.66 1.36.35.22.46.68.25 1zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 1 1-.54-1.8c4.36-1.32 9.77-.68 13.48 1.6.44.27.58.85.32 1.29zm.13-3.4C15.24 8.3 8.85 8.08 5.23 9.18a1.12 1.12 0 1 1-.65-2.15c4.15-1.26 11.22-1.02 15.62 1.6a1.12 1.12 0 0 1-1.1 1.99z"/>
+      </svg>
+      Open playlist in Spotify
+    </a>
+    <div class="spotify-hint">plays in the Spotify app or website ♡</div>
   </div>
 </div>
 
 <!-- External JavaScript -->
-<script src="spotify-player.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
