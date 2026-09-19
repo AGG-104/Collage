@@ -111,15 +111,6 @@
   flex-shrink: 0;
 }
 
-.spotify-hint {
-  margin-top: 0.7rem;
-  font-size: 0.72rem;
-  color: #b3968a;
-  letter-spacing: 0.03rem;
-  font-weight: 300;
-  line-height: 1.4;
-}
-
 /* ---------- collapsed state ---------- */
 .spotify-dock.collapsed {
   width: 56px;
