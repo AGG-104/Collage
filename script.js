@@ -427,7 +427,20 @@
       text: 'all soft in your blanket',
       date: 'Taken 14 September 2026 · Facetime'
     },
-    
+    {
+      type: 'image',
+      src: 'us/09-21-26.jpg',
+      alt: 'ring pop',
+      text: 'Sucking on that ring pop',
+      date: 'Taken 21 September 2026 · Camera'
+    },
+    {
+      type: 'image',
+      src: 'us/09-22-26.jpg',
+      alt: 'apple',
+      text: 'show me your apples ;)',
+      date: 'Taken 22 September 2026 · Camera'
+    },
     // More memories to come for october :)
 
   ];
@@ -478,4 +491,59 @@
 
   // optional: log (no-op)
   console.log('happy anniversary — edit any text box to add your memories!');
+})();
+
+/* ---------- love counter ---------- */
+
+(function () {
+  const counter = document.getElementById('loveCounter');
+  if(!counter) return;
+
+  const START_DATE = new Date('2025-11-02');
+
+  const el = {
+    years:    document.getElementById('counterYears'),
+    months:   document.getElementById('counterMonths'),
+    days:     document.getElementById('counterDays'),
+    hours:    document.getElementById('counterHours'),
+    minutes:  document.getElementById('counterMinutes'),
+    seconds:  document.getElementById('counterSeconds')
+  };
+
+  function getElapsed(start, now) {
+    let years     = now.getFullYear() - start.getFullYear();
+    let months    = now.getMonth() - start.getMonth();
+    let days      = now.getDate() - start.getDate();
+    let hours     = now.getHours() - start.getMonth();
+    let minutes   = now.getMinutes() - start.getMinutes();
+    let seconds   = now.getSeconds() - start.getSeconds();
+
+    if(seconds < 0) { seconds += 60; minutes--; }
+    if(minutes < 0) { minutes += 60; hours--; }
+    if(hours < 0) { hours += 60; days--; }
+    if(days < 0) {
+      const daysInPrevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+      days += daysInPrevMonth;
+      months--;
+    }
+
+    if(months < 0) { months += 12; years--; }
+
+    return {years, months, days, hours, minutes, seconds};
+  }
+
+  function tick() {
+    const now = new Date();
+    const t = getElapsed(START_DATE, now);
+
+    el.years.textContent   = t.years;
+    el.months.textContent  = t.months;
+    el.days.textContent    = t.days;
+    el.hours.textContent   = t.hours;
+    el.minutes.textContent = String(t.minutes).padStart(2, '0');
+    el.seconds.textContent = String(t.seconds).padStart(2, '0');
+  }
+
+  tick();
+  setInterval(tick, 1000);
 })();
