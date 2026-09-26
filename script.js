@@ -499,7 +499,7 @@
   const counter = document.getElementById('loveCounter');
   if(!counter) return;
 
-  const START_DATE = new Date('2025-11-02');
+  const START_DATE = new Date('2025-11-02T00:00:00');
 
   const el = {
     years:    document.getElementById('counterYears'),
@@ -514,13 +514,13 @@
     let years     = now.getFullYear() - start.getFullYear();
     let months    = now.getMonth() - start.getMonth();
     let days      = now.getDate() - start.getDate();
-    let hours     = now.getHours() - start.getMonth();
+    let hours     = now.getHours() - start.getHours();
     let minutes   = now.getMinutes() - start.getMinutes();
     let seconds   = now.getSeconds() - start.getSeconds();
 
     if(seconds < 0) { seconds += 60; minutes--; }
     if(minutes < 0) { minutes += 60; hours--; }
-    if(hours < 0) { hours += 60; days--; }
+    if(hours < 0) { hours += 24; days--; }
     if(days < 0) {
       const daysInPrevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
       days += daysInPrevMonth;
