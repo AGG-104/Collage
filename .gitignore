@@ -1,0 +1,11 @@
+# Original (uncompressed) images — keep locally, not in repo
+us_original/
+Us_original/
+
+# macOS system files
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/

@@ -448,13 +448,13 @@
   // ----- helper: build media HTML -----
   function buildMedia(item) {
   if (item.type === 'image') {
-    return `<img src="${item.src}" alt="${item.alt || 'memory'}" loading="lazy">`;
+    return `<img src="${item.src}" alt="${item.alt || 'memory'}" decoding="async">`;
   } else if (item.type === 'video') {
     const sources = item.sources.map(s =>
       `<source src="${s.src}" type="${s.type}">`
     ).join('');
     return `
-      <video muted loop autoplay playsinline controls preload="auto" poster="${item.poster || ''}">
+      <video muted loop autoplay playsinline controls preload="metadata" poster="${item.poster || ''}">
         ${sources}
         your browser doesn't support video.
       </video>
@@ -483,11 +483,15 @@
   // ----- render all cards into grid -----
   const grid = document.getElementById('collageGrid');
   if (grid) {
-    memories.forEach(item => {
-      const card = createCard(item);
-      grid.appendChild(card);
-    });
-  }
+  memories.forEach((item, index) => {
+    const card = createCard(item);
+    grid.appendChild(card);
+    if (index >= 6) {
+      const img = card.querySelector('img');
+      if (img) img.setAttribute('loading', 'lazy');
+    }
+  });
+}
 
   // optional: log (no-op)
   console.log('happy anniversary — edit any text box to add your memories!');
