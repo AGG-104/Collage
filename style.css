@@ -397,3 +397,135 @@ body {
   text-transform: lowercase;
   opacity: 0.75;
 }
+
+.letter-section {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.letter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.50rem;
+  padding: 0.75rem 1.4rem;
+  background: rgba(255, 250, 245, 0.85);
+  border: 1px solid rgba(230, 210, 200, 0.7);
+  border-radius: 999px;
+  color: #a88477;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 4px 14px rgba(160, 120, 100, 0.08);
+}
+
+.letter-toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 252, 248, 0.95);
+  box-shadow: 0 6px 18px rgba(160, 120, 100, 0.14);
+}
+
+.letter-toggle:active {
+  transform: translateY(0);
+}
+
+.letter-chevron {
+  display: inline-block;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+}
+
+.letter-toggle[aria-expanded="true"] .letter-chevron {
+  transform: rotate(180deg);
+}
+
+.letter-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.letter-content.open {
+  max-height: 1400px;
+  opacity: 1;
+  margin-top: 1.6rem;
+}
+
+.letter-paper {
+  background: rgba(255, 250, 245, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solide rgba(230, 210, 200, 0.6);
+  border-radius: 28px;
+  padding: 2.2rem 2rem 2rem;
+  text-align: left;
+  box-shadow: 0 10px 32px rgba(160, 120, 100, 0.10)
+              0 2px 6px rgba(180, 140, 120, 0.05);
+  position: relative;
+}
+
+.letter-paper::before {
+  content: "";
+  position: absolute;
+  top: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #d9b8a8, #d48b7a);
+  opacity: 0.5;
+}
+
+.letter-greeting {
+  font-size: 1.15rem;
+  color: #b48b7a;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.letter-paper p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #4a3a33;
+  font-weight: 350;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.01rem;
+}
+
+.letter-signoff {
+  margin-top: 1.8rem;
+  margin-bottom: 0 !important;
+  color: #a88477 !important;
+  font-style: italic;
+  line-height: 1.6 !important;
+}
+
+.letter-name {
+  font: 1.25rem;
+  color: #b48b7a;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+}
+
+@media (max-width: 600px) {
+  .letter-paper{
+    padding: 1.8rem 1.4rem 1.5rem;
+    border-radius: 24px;
+  }
+  .letter-paper p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+  .letter-greeting {
+    font-size: 1.05rem;
+  }
+}

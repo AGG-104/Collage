@@ -551,3 +551,24 @@
   tick();
   setInterval(tick, 1000);
 })();
+
+/* ---------- love letter toggle ---------- */
+(function () {
+  const toggle  = document.getElementById('letterToggle');
+  const content = document.getElementById('letterContent');
+  if (!toggle || !content) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = content.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    const label = toggle.querySelector('.letter-label');
+    if (label) label.textContent = isOpen ? 'close letter' : 'read my letter';
+
+    if (isOpen && window.innerWidth < 600) {
+      setTimeout(() => {
+        toggle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    }
+  });
+})();
