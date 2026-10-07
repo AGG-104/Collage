@@ -127,7 +127,7 @@
       type: 'image',
       src: 'us/04-04-26_2.jpg',
       alt: 'bbq',
-      text: 'Tim when he wasnt giving that bbq',
+      text: 'Tim when he wasn\'t giving that bbq',
       date: 'Taken 4 April 2026 · Tims Hawaiian BBQ'
     },
     {
@@ -354,7 +354,7 @@
       sources: [
       { src: 'us/08-02-26_1.mp4', type: 'video/mp4' }
       ],
-      text: 'You beat me here but it didnt feel like losing when I have you',
+      text: 'You beat me here but it didn\'t feel like losing when I have you',
       date: 'Taken 2 August 2026 · Underground Mini Golf'
     },
     {
@@ -438,10 +438,30 @@
       type: 'image',
       src: 'us/09-22-26.jpg',
       alt: 'apple',
-      text: 'show me your apples ;)',
+      text: 'Show me your apples ;)',
       date: 'Taken 22 September 2026 · Camera'
     },
-    // More memories to come for october :)
+    {
+      type: 'image',
+      src: 'us/10-04-26_1.jpg',
+      alt: 'cuddle',
+      text: 'long overdue cuddle session with you',
+      date: 'Taken 4 October 2026 · Elk Grove Tourist Attraction'
+    },
+    {
+      type: 'image',
+      src: 'us/10-04-26_2.jpg',
+      alt: 'cuddle bug',
+      text: 'I love you so much',
+      date: 'Taken 4 October 2026 · Elk Grove Tourist Attraction'
+    },
+    {
+      type: 'image',
+      src: 'us/10-04-26_3.jpg',
+      alt: 'bug',
+      text: 'Can\'t take my eyes off you',
+      date: 'Taken 4 October 2026 · Elk Grove Tourist Attraction'
+    },
 
   ];
 
