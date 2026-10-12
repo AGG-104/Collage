@@ -462,7 +462,34 @@
       text: 'Can\'t take my eyes off you',
       date: 'Taken 4 October 2026 · Elk Grove Tourist Attraction'
     },
-
+    {
+      type: 'image',
+      src: 'us/10-07-26_1.jpg',
+      alt: 'cutie boyfriend',
+      text: 'Caught you lacking',
+      date: 'Taken 7 October 2026 · Elk Grove Tourist Attraction'
+    },
+    {
+      type: 'image',
+      src: 'us/10-07-26_2.jpg',
+      alt: 'hungry caterpillar',
+      text: 'So comfortable all the time',
+      date: 'Taken 7 October 2026 · Elk Grove Tourist Attraction'
+    },
+    {
+      type: 'image',
+      src: 'us/10-08-26.jpg',
+      alt: 'sleepy man',
+      text: 'Caught you lacking again',
+      date: 'Taken 8 October 2026 · Elk Grove Tourist Attraction'
+    },
+    {
+      type: 'image',
+      src: 'us/10-09-26.jpg',
+      alt: 'last one for now',
+      text: 'Last picture of this collage, but not the last picture of us',
+      date: 'Taken 9 October 2026 · Elk Grove Tourist Attraction'
+    }
   ];
 
   // ----- helper: build media HTML -----
@@ -591,4 +618,30 @@
       }, 200);
     }
   });
+})();
+
+/* ---------- back to top ---------- */
+(function () {
+  const backToTopBtn = document.getElementById('backToTop');
+  if (!backToTopBtn) return;
+
+  const SHOW_AFTER = 600; // Show button after scrolling down 600px
+
+  function toggleVisibility() {
+    if (window.scrollY > SHOW_AFTER) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility(); // run once on load in case user is already scrolled down
 })();
