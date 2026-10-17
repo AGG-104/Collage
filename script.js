@@ -486,9 +486,23 @@
     {
       type: 'image',
       src: 'us/10-09-26.jpg',
+      alt: 'matching pjs',
+      text: 'always so cuddly in the morning',
+      date: 'Taken 9 October 2026 · Elk Grove Tourist Attraction'
+    },
+    {
+      type: 'image',
+      src: 'us/10-14-26.jpg',
+      alt: 'Wolverine',
+      text: 'Never seen this Wolverine before...',
+      date: 'Taken 14 October 2026 · Spirit Halloween Store'
+    },
+    {
+      type: 'image',
+      src: 'us/10-15-26.jpg',
       alt: 'last one for now',
       text: 'Last picture of this collage, but not the last picture of us',
-      date: 'Taken 9 October 2026 · Elk Grove Tourist Attraction'
+      date: 'Taken 15 October 2026 · The Great Daly City'
     }
   ];
 
@@ -620,6 +634,7 @@
   });
 })();
 
+/* Questioning the need for this section, but keeping it for now. */
 /* ---------- back to top ---------- */
 (function () {
   const backToTopBtn = document.getElementById('backToTop');
